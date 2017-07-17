@@ -4,6 +4,7 @@ class UserPrizesController < ApplicationController
     def show
     end
     def new
+      
     end 
     def create
     end
@@ -13,5 +14,5 @@ class UserPrizesController < ApplicationController
     end
     def delete
     end 
-    
+
 end

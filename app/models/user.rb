@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :user_prizes
   has_many :user_actions
-
+  accepts_nested_attributes_for :user_prizes, :user_actions 
   
 
 end
