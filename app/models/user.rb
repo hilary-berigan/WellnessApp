@@ -5,8 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_prizes
-  has_many :user_actions
-  accepts_nested_attributes_for :user_prizes, :user_actions 
-  
+  has_many :user_activities
+  accepts_nested_attributes_for :user_prizes, :user_activities, allow_destroy: true, reject_if: :all_blank
+
+
+  def update_points(points)
+    self.points = self.points + points
+    self.save
+  end
 
 end

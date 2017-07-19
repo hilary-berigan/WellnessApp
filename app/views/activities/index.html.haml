@@ -1,0 +1,16 @@
+%h1 Actions
+.row
+  =@activities.each do |a|
+
+    .col-sm-6.col-md-4
+      .thumbnail
+        %img{:src => "..."}
+        .caption
+          %h3=a.title
+          %p=a.description
+          %p
+            %a{:href =>edit_activity_path(a), :class=>"btn btn-primary", :role=>"button" } Edit
+            %a{:href=>"#", :class=>"btn btn-default", :role=>"button"}Delete
+            =link_to "Add This Action", {controller: 'user_activities', action: 'new', id: @user.id, activity: a.name }
+
+      %br

@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714220844) do
+ActiveRecord::Schema.define(version: 20170717212102) do
 
-  create_table "actions", force: :cascade do |t|
+  create_table "activities", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170714220844) do
     t.string "image_path"
     t.integer "point_value"
     t.string "activity_status"
-    t.string "type"
+    t.string "strong_type"
   end
 
   create_table "prizes", force: :cascade do |t|
@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 20170714220844) do
     t.integer "quantity"
   end
 
-  create_table "user_actions", force: :cascade do |t|
+  create_table "user_activities", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "action_id"
+    t.integer "activity_id"
     t.string "image_path"
     t.boolean "verified"
     t.string "points_earned"

@@ -1,10 +1,10 @@
 class PrizesController < ApplicationController
   def index
-  end 
+  end
   def show
   end
   def new
-  end 
+  end
   def create
     @prize = Prize.new
     @prize.create(prize_params)
@@ -22,5 +22,5 @@ class PrizesController < ApplicationController
   end
   def prize_params
     params.require(:prize).permit(:title, :description, :image_path, :point_value, :activity_status, :quantity)
-  end 
+  end
 end
