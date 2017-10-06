@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :get_activity, only: [:show, :edit, :update, :destroy]
+  before_action :get_user
   def index
-    @user = Thread.current[:current_user]
     @activities = Activity.find_each
     respond_with(@activities)
   end
@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
 
   end
   def edit
-    @activity = Activity.find(params[:id])
+    get_activity
     puts @activity
     $stdout.flush
   end
@@ -35,7 +35,18 @@ class ActivitiesController < ApplicationController
     flash[:success] = "Activity Deleted"
     redirect_to activities_url
   end
-
+  def nutrition
+    @nutrition_activities = Activity.where(:wellness_type => 'nutrition').all
+    respond_with(@nutrition_activities)
+  end
+  def fitness
+    @fitness_activities = Activity.where(:wellness_type => 'fitness').all
+    respond_with(@fitness_activities)
+  end
+  def overall_health
+    @overall_activities = Activity.where(:wellness_type => 'overall').all
+    respond_with(@overall_activities)
+  end
 
 
   def activity_params
@@ -43,5 +54,8 @@ class ActivitiesController < ApplicationController
   end
   def get_activity
     @activity = Activity.find(params[:id])
+  end
+  def get_user
+    @user = current_user
   end
 end

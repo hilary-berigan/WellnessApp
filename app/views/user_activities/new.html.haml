@@ -1,13 +1,2 @@
-%h1 Choose an Action
-.row
-  =@activities.each do |a|
-    .col-sm-6.col-md-4
-      .thumbnail
-        %img{:src => "..."}
-        .caption
-          %h3=a.title
-          %p=a.description
-          %br
-          =link_to "Add This Action", {controller: 'user_activities', action: 'create', id: @user.id, activity: a.name }
-  %br
-  %br
+
+

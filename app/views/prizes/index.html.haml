@@ -1,0 +1,18 @@
+%h1 Redeem Prizes
+.row
+  =@prizes.each do |p|
+
+    .col-sm-6.col-md-4
+      .thumbnail
+        %img
+        .caption
+          %h3=p.title
+          %p=p.description
+
+          %p= "#{p.point_value} Points"
+          %p
+            =link_to "Claim Prize", {controller: 'user_prizes', action: 'create', id: @user.id, prize: p.id }, method: 'post'
+
+            -# =link_to "Delete", {controller: 'prizes', action: 'destroy', id: p.id }, method: 'delete'
+            -# =link_to "Edit", {controller: 'prizes', action: 'edit', id: p.id }, method: 'patch'
+      %br

@@ -1,0 +1,9 @@
+#homepage
+  .jumbo
+    -if controller_name != "dashboards"
+      =render '#{controller_name}/#{action_name}'
+    -else
+      .row
+        .text-group
+          %h1 Get Healthy.
+          %h1 Win Prizes.

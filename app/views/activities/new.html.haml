@@ -6,6 +6,7 @@
   = f.input :point_value, :label => 'Point Value'
   = f.input :activity_status, :collection => [ 'A','I','D' ], :label => 'Status(Active,Inactive,Deleted)'
   = f.input :strong_type, :collection => ['Self', 'Train', 'Responsibility','Opportunity','Numbers','Goals'], :label => 'STRONG Category'
+  = f.input :wellness_type, :collection => ['Fitness', 'Nutrition', 'Wellness', 'WVA Event']
   = f.button :submit
 
 

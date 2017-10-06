@@ -1,4 +1,5 @@
 %h1 Record Your Activities
+
 .container
   %ul.nav.nav-tabs
     %li
@@ -8,11 +9,12 @@
     %li
       = link_to 'Nutrition', nutrition_path
     %li.active
-      = link_to 'All', activities_path
+      = link_to 'All', all_path
+
+
 %br
 .row
-
-  =@activities.each do |a|
+  =@all_activities.each do |a|
     .col-sm-6.col-md-4
       .thumbnail
         .caption

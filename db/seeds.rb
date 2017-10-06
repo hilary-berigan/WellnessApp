@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Activity.create!([{
+   title: 'Hike',
+   description: 'go for a hike',
+   point_value: 50,
+   activity_status: 'active',
+   strong_type: 'train',
+   wellness_type: 'overall'
+}])

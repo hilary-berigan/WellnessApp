@@ -1,0 +1,21 @@
+%h1 Your Prizes
+-@user_prizes.each do |u|
+  -prize = Prize.find(u.prize_id)
+  %h4=prize.title
+  %h5=u.created_at
+  =prize.description
+  %br
+  ="#{prize.point_value} Points"
+  %br
+
+%h1 Last 30 Days
+-@recent_prizes.each do |r|
+  -prize = Prize.find(r.prize_id)
+  %h4=prize.title
+  %h5=r.created_at
+
+  =prize.description
+  %br
+  ="#{prize.point_value} Points"
+  %br
+  %br

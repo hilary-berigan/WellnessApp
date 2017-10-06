@@ -1,0 +1,15 @@
+%h1 Your Activities
+%h2{style: 'padding: 15px;'}
+  Last 30 Days
+
+-@recent_activities.each do |r|
+  -activity = Activity.find(r.activity_id)
+  .row{style: 'padding: 15px 50px; border-top-color: rgb(235,235,235); border-top-style: solid; border-top-width: 1px;'}
+
+    %h4=activity.title
+    %h5=r.created_at
+    =activity.description
+    %br
+    ="#{activity.point_value} Points"
+
+

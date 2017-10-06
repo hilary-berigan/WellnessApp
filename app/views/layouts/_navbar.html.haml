@@ -1,0 +1,55 @@
+%nav.navbar-container.navbar-fixed-top.my-navbar
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{type: "button", "data-toggle" => "collapse",
+      "data-target" => "#bs-example-navbar-collapse-1", "aria-expanded" => "false"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      %a.navbar-brand{href: "/"} WVAStrong
+
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      -if user_signed_in?
+        %ul.nav.navbar-nav
+          %li.dropdown
+            %a.dropdown-toggle{href:"#", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria_expanded" => "false"}
+              DASHBOARD
+              %span.caret
+            %ul.dropdown-menu{:role => "menu"}
+              %li
+                =link_to "Past Actions", controller: "user_activities", action: "index", id: "#{current_user.id}"
+              %li
+                =link_to "Earned Prizes", controller: "user_prizes", action: "index", id: "#{current_user.id}"
+              %li
+                %a{href:"#"} Goals
+
+
+          %li
+            .active
+            %a{href:"/prizes"}
+              REDEEM
+              %span.sr-only(current)
+          %li
+            %a{href:"/activities"} ACTIONS
+
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{href:"#"} ABOUT WVAStrong
+        %li.dropdown
+          %a.dropdown-toggle{href:"#", "data-toggle" => "dropdown", role: "button",
+          "aria-haspopup" => "true", "aria-expanded" => "false"}
+            ACCOUNT
+            %span.caret
+
+          %ul.dropdown-menu
+
+            -if user_signed_in?
+              %li
+                %a{href: "users/#{current_user.id}", method: "get"} Profile
+              %li
+                =link_to('Logout', destroy_user_session_path, method: :delete)
+            -else
+              %li
+                =link_to('Login', new_user_session_path)

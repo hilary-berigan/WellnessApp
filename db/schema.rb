@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717212102) do
+ActiveRecord::Schema.define(version: 20170926150009) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170717212102) do
     t.integer "point_value"
     t.string "activity_status"
     t.string "strong_type"
+    t.string "wellness_type"
   end
 
   create_table "prizes", force: :cascade do |t|

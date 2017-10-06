@@ -1,0 +1,45 @@
+%head
+  %title WellnessApp
+  = csrf_meta_tags
+
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+
+
+
+-if user_signed_in? == false
+
+  -if controller_name == "dashboards"
+    .homepage
+      =render 'layouts/navbar'
+      #homepage
+        .jumbo
+          .row
+            .text-group
+              %h1 Get Healthy.
+              %h1 Win Prizes.
+  -else
+    =render 'layouts/navbar'
+  .body-container
+    -if notice
+      %p.alert.alert-success= notice
+    -if alert
+      %p.alert.alert-danger= alert
+    =yield
+-else
+  =render 'layouts/navbar'
+  .body-container
+    -if notice
+      %p.alert.alert-success= notice
+    -if alert
+      %p.alert.alert-danger= alert
+    =yield
+
+
+
+
+
+
+
+
