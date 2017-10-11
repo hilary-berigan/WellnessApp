@@ -6,4 +6,7 @@
   = f.input :point_value, :label => 'Point Value'
   = f.input :activity_status, :collection => [ 'A','I','D' ], :label => 'Status(Active,Inactive,Deleted)'
   = f.input :strong_type, :collection => ['Self', 'Train', 'Responsibility','Opportunity','Numbers','Goals'], :label => 'STRONG Category'
+  = f.input :wellness_type, :collection => ['Nutrition', 'Fitness', 'Overall Health', 'WVA Event'], :label => 'Wellness Category'
+  = f.input :icon_path, :collection => ['apple.png', 'Weightlifting.png', 'mind.png', 'heart.png']
+  = f.input :image_path, :collection => ['bikeride.jpg', 'hike.jpg']
   = f.button :submit

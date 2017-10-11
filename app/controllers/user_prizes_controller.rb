@@ -2,12 +2,13 @@ class UserPrizesController < ApplicationController
   before_action :get_user_prize, only: [:show, :edit, :update, :delete]
 
   def index
-    @user_prizes = UserPrize.where(user_id: params[:id])
+    @user_prizes = UserPrize.where(user_id: current_user)
     @recent_prizes = @user_prizes.where('created_at > ?', (Date.today - 1.month) ).all
 
   end
   def show
   end
+  
   def new
     @prize = Prize.find(params[:prize])
     @user = current_user #maybe current_user?

@@ -1,21 +1,27 @@
-%h1 Your Prizes
--@user_prizes.each do |u|
-  -prize = Prize.find(u.prize_id)
-  %h4=prize.title
-  %h5=u.created_at
-  =prize.description
-  %br
-  ="#{prize.point_value} Points"
-  %br
 
-%h1 Last 30 Days
--@recent_prizes.each do |r|
-  -prize = Prize.find(r.prize_id)
-  %h4=prize.title
-  %h5=r.created_at
+%h5
+  %strong{style: 'color: rgb(195,195,195); padding-left: 10%;'} YOUR PRIZES
+%h2{style: 'padding-left: 10%;'}
 
-  =prize.description
-  %br
-  ="#{prize.point_value} Points"
-  %br
-  %br
+.week-container
+
+  -@user_prizes.each do |u|
+    -prize = Prize.find(u.prize_id)
+    %h4=prize.title
+    %h5=u.created_at
+    =prize.description
+    %br
+    ="#{prize.point_value} Points"
+    %br
+
+  %h1 Last 30 Days
+  -@recent_prizes.each do |r|
+    -prize = Prize.find(r.prize_id)
+    %h4=prize.title
+    %h5=r.created_at
+
+    =prize.description
+    %br
+    ="#{prize.point_value} Points"
+    %br
+    %br

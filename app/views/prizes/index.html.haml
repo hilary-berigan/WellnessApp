@@ -1,18 +1,21 @@
-%h1 Redeem Prizes
-.row
-  =@prizes.each do |p|
+.every-header
+  %h5
+    %strong{style: 'color: rgb(195,195,195); padding-left: 10%;'} REDEEM PRIZES
+  %h2{style: 'padding-left: 10%;'} All Prizes
+.list-container
+  .row
+    =@prizes.each do |p|
 
-    .col-sm-6.col-md-4
-      .thumbnail
-        %img
-        .caption
-          %h3=p.title
-          %p=p.description
+      .col-sm-6.col-md-4
+        .thumbnail{style: 'background: rgb(249,251,251);'}
+          %img
+          .caption
+            %h3=p.title
+            %p=p.description
 
-          %p= "#{p.point_value} Points"
-          %p
-            =link_to "Claim Prize", {controller: 'user_prizes', action: 'create', id: @user.id, prize: p.id }, method: 'post'
-
-            -# =link_to "Delete", {controller: 'prizes', action: 'destroy', id: p.id }, method: 'delete'
-            -# =link_to "Edit", {controller: 'prizes', action: 'edit', id: p.id }, method: 'patch'
-      %br
+            %p= "#{p.point_value} Points"
+            .row
+              .col-sm-6
+              .col-sm-6
+                =link_to "Claim Prize", {controller: 'user_prizes', action: 'create', id: @user.id, prize: p.id }, method: 'post', :class=>"btn btn-default", :role=>"button"
+        %br

@@ -1,15 +1,132 @@
-%h1 Your Activities
-%h2{style: 'padding: 15px;'}
-  Last 30 Days
 
--@recent_activities.each do |r|
-  -activity = Activity.find(r.activity_id)
-  .row{style: 'padding: 15px 50px; border-top-color: rgb(235,235,235); border-top-style: solid; border-top-width: 1px;'}
+%h5
+  %strong{style: 'color: rgb(195,195,195); padding-left: 10%;'} ACTIVITY LOG
+%h2{style: 'padding-left: 10%;'} This Week
 
-    %h4=activity.title
-    %h5=r.created_at
-    =activity.description
-    %br
-    ="#{activity.point_value} Points"
+.week-container
 
+  %h3 Sunday
+  .container{:style=>"overflow-x: auto;"}
+    -if @sun_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+    %table
 
+      -@sun_activities.each do |s|
+        %tr
+          -activity = Activity.find(s.activity_id)
+          %td.img-col
+            =image_tag(activity.icon_path, height: '32', width: '32') || ""
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"
+
+  %h3 Monday
+  .container{:style=>"overflow-x: auto;"}
+
+    -if @mon_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+    %table
+      - @mon_activities.each do |m|
+        %tr
+          -activity = Activity.find(m.activity_id)
+          %td.img-col
+            =image_tag(activity.icon_path, height: '32', width: '32') || ""
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"
+
+  %h3 Tuesday
+  .container{:style=>"overflow-x: auto;"}
+    -if @tue_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+    %table
+      -@tue_activities.each do |t|
+        %tr
+          -activity = Activity.find(t.activity_id)
+          %td.img-col
+            =image_tag(activity.icon_path, height: '32', width: '32') || ""
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"
+
+  %h3 Wednesday
+  .container{:style=>"overflow-x: auto;"}
+    -if @wed_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+    %table
+      -@wed_activities.each do |w|
+        %tr
+          %td.img-col
+          -activity = Activity.find(w.activity_id)
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"
+  %h3 Thursday
+  .container{:style=>"overflow-x: auto;"}
+    -if @thu_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+
+    %table
+      -@thu_activities.each do |h|
+        %tr
+          %td.img-col
+            =image_tag(activity.icon_path, height: '32', width: '32') || ""
+          -activity = Activity.find(h.activity_id)
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"
+
+  %h3 Friday
+  .container{:style=>"overflow-x: auto;"}
+    -if @fri_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+    %table
+      -@fri_activities.each do |f|
+        %tr
+          %td.img-col
+          -activity = Activity.find(f.activity_id)
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"
+
+  %h3 Saturday
+  .container{:style=>"overflow-x: auto;"}
+    -if @sat_activities.empty? == true
+      No activities logged yet.
+      = link_to 'Log Activities' , activities_path, :class=>"btn btn-default", :role=>"button"
+    %table
+      -@sat_activities.each do |a|
+        %tr
+          %td.img-col
+            =image_tag(activity.icon_path, height: '32', width: '32') || ""
+          -activity = Activity.find(a.activity_id)
+          %td
+            =activity.title
+          %td
+            =activity.description
+          %td
+            ="#{activity.point_value} Points"

@@ -20,18 +20,15 @@
   nav
     background: none
     box-shadow: none
+    min-height: 200px
 
   .navbar-brand
-    padding: 5px
-    margin: 15px 15px 10px 15px
     color: rgb(248,248,248)
     font-size: 26px
-    height: 40px
-
     &:hover
       background-color: none
       background: none
-      border-bottom: 2px solid rgb(248,248,248)
+
 
   .white
     background-color: rgb(253,253,253)
@@ -46,20 +43,18 @@
         background: none
         border-bottom: 2px solid rgb(95,95,95)
     .navbar-brand
-      padding: 5px
-      margin: 15px
       color: rgb(95,95,95)
       font-size: 26px
       &:hover
         background-color: none
         background: none
-        border-bottom: 2px solid rgb(95,95,95)
+
 
   .nav > li > a
     color: rgb(248,248,248)
     padding: 5px
     margin: 15px
-    font-size: 12px
+    font-size: 30px
     font-family: 'Roboto', Arial, sans-serif
     font-weight: bold
     &:hover
@@ -75,7 +70,7 @@
   @media (min-width: 768px)
     .navbar
       border-radius: none
-      min-height: 100px
+      min-height: 200px
 
 #homepage
   .jumbo
@@ -106,7 +101,7 @@ hr
 
 
 body
-  background-color: rgb(248,248,248)
+  background-color: rgb(240,240,240)
 
 .example-box
   border-color: rgb(10,0,0)
@@ -117,6 +112,7 @@ body
 nav
   background-color: rgb(253,253,253)
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14)
+  min-height: 100px
 
   .nav > li > a
     color: rgb(95,95,95)
@@ -127,16 +123,62 @@ nav
       background: none
       border-bottom: 2px solid rgb(95,95,95)
   .navbar-brand
-    padding: 5px
-    margin: 15px
     color: rgb(95,95,95)
-    font-size: 26px
+    font-size: 50px
     &:hover
       background-color: none
       background: none
-      border-bottom: 2px solid rgb(95,95,95)
+
   .nav-tabs
     border-bottom: none
 
 .body-container
-  padding: 100px
+  padding-top: 9em
+
+.every-header
+  width: 100%
+  margin: 0 auto
+  max-width: 75em
+
+.list-container
+  background-color: rgb(255,255,255)
+  padding: 4%
+  max-width: 75em
+  margin: 0 auto
+
+
+.week-container
+  background-color: rgb(255,255,255)
+  padding: 4%
+  max-width: 75em
+  width: 100%
+  margin: 0 auto
+  height: 100%
+
+  td, th, table, tbody
+    padding: 7px
+    background-color: rgba(82,105,206,.1)
+    border-bottom: 2px solid rgb(248,248,248)
+    text-align: center
+  td, th
+    width: 23.5%
+    min-height: 30px
+  table
+    border-collapse: collapse
+    width: 100%
+    max-width: 55em
+
+  .img-col
+    width: 5%
+    background-color: rgb(248,248,248)
+  .img-size
+    max-height: 250px
+    max-width: 250px
+
+.dashboard-container
+  background-color: rgb(255,255,255)
+  padding: 4%
+  max-width: 75em
+  width: 100%
+  margin: 0 auto
+  height: 100%

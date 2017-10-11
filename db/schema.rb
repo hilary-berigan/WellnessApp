@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926150009) do
+ActiveRecord::Schema.define(version: 20171010223524) do
 
   create_table "activities", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170926150009) do
     t.string "activity_status"
     t.string "strong_type"
     t.string "wellness_type"
+    t.string "icon_path"
   end
 
   create_table "prizes", force: :cascade do |t|
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170926150009) do
     t.integer "completion_day"
     t.integer "completion_month"
     t.integer "completion_year"
+    t.date "completion_date"
   end
 
   create_table "user_prizes", force: :cascade do |t|
