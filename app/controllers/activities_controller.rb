@@ -4,8 +4,6 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.find_each
-
-    respond_with(@activities,@user_date)
   end
   def show
 
@@ -17,6 +15,7 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     if @activity.save
+      @activities = Activity.find_each
       render 'index'
     else
     end
@@ -37,26 +36,32 @@ class ActivitiesController < ApplicationController
     flash[:success] = "Activity Deleted"
     redirect_to activities_url
   end
-  def nutrition
-    @nutrition_activities = Activity.where(:wellness_type => 'Nutrition').all
-    respond_with(@nutrition_activities)
+  def self
+    @self_activities = Activity.where(:strong_type => 'Self').find_each
   end
-  def fitness
-    @fitness_activities = Activity.where(:wellness_type => 'Fitness').all
-    respond_with(@fitness_activities)
-  end
-  def overall_health
-    @overall_activities = Activity.where(:wellness_type => 'Overall').all
-    respond_with(@overall_activities)
-  end
+  def train
+    @train_activities = Activity.where(:strong_type => 'Train').find_each
 
-  def wva_event
-    @wva_events = Activity.where(:wellness_type => 'WVA Event').all
-    respond_with(@wva_events)
+  end
+  def responsibility
+    @resp_activities = Activity.where(:strong_type => 'Responsibility').find_each
+
+  end
+  def opportunities
+    @opp_activities = Activity.where(:strong_type => 'Opportunities').find_each
+
+  end
+  def numbers
+    @num_activities = Activity.where(:strong_type => 'Numbers').find_each
+
+  end
+  def goals
+    @goals_activities = Activity.where(:strong_type => 'Goals').find_each
+
   end
 
   def activity_params
-    params.require(:activity).permit(:title, :description, :image_path, :point_value, :activity_status, :strong_type, :wellness_type, :icon_path, :image_path)
+    params.require(:activity).permit(:title, :description, :image_path, :point_value, :activity_status, :strong_type, :wellness_type, :icon_path)
   end
 
   def get_activity

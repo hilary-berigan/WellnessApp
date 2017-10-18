@@ -17,18 +17,23 @@ Rails.application.routes.draw do
 
 
 
-
-  get "fitness" => 'activities#fitness', as: 'fitness'
-  get "nutrition" => 'activities#nutrition', as: 'nutrition'
-  get "overall_health" => 'activities#overall_health', as: 'overall'
-  get "wva_event" => 'activities#wva_event', as: 'wva_events'
-
+  get "self" => 'activities#self', as: 'self'
+  get "train" => 'activities#train', as: 'train'
+  get "responsibility" => 'activities#responsibility', as: 'responsibility'
+  get "opportunities" => 'activities#opportunities', as: 'opportunities'
+  get "numbers" => 'activities#numbers', as: 'numbers'
+  get "goals" => 'activities#goals', as: 'goals'
   get "new_user_activity" => 'user_activities#new', as: 'new_user_activities'
 
   resources :prizes
   resources :activities
-  resources :user_prizes
 
+
+  namespace :admin do
+    resources :prizes
+    resources :activities 
+    resources :users 
+  end
 
 
   root to: 'dashboards#index'

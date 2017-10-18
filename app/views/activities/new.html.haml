@@ -2,11 +2,11 @@
 = simple_form_for @activity,:method => :post do |f|
   = f.input :title, :label => 'Title'
   = f.input :description, :as => :text, :label => 'Description'
-  = f.input :image_path, :as => :file, :label => 'Upload Image'
+  = f.file_field :image_path
   = f.input :point_value, :label => 'Point Value'
   = f.input :activity_status, :collection => [ 'A','I','D' ], :label => 'Status(Active,Inactive,Deleted)'
-  = f.input :strong_type, :collection => ['Self', 'Train', 'Responsibility','Opportunity','Numbers','Goals'], :label => 'STRONG Category'
-  = f.input :wellness_type, :collection => ['Fitness', 'Nutrition', 'Wellness', 'WVA Event']
+  = f.input :strong_type, :collection => ['Self', 'Train', 'Responsibility','Opportunities','Numbers','Goals'], :label => 'STRONG Category'
+  = f.input :wellness_type, :collection => ['Fitness', 'Nutrition', 'Overall Health', 'WVA Event']
   = f.input :icon_path, :collection => ['apple.png', 'Weightlifting.png', 'mind.png', 'heart.png']
   = f.button :submit
 

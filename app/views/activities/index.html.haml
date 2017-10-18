@@ -8,29 +8,37 @@
       %li.active.responsive
         = link_to 'All', activities_path
       %li.responsive
-        = link_to 'Overall Health', overall_path
+        = link_to 'Self', self_path
       %li.responsive
-        = link_to 'Fitness', fitness_path
+        = link_to 'Train', train_path
       %li.responsive
-        = link_to 'Nutrition', nutrition_path
+        = link_to 'Responsibility', responsibility_path
       %li.responsive
-        = link_to 'WVA Events', wva_events_path
+        = link_to 'Opportunities', opportunities_path
+      %li.responsive
+        = link_to 'Numbers', numbers_path
+      %li.responsive
+        = link_to 'Goals', goals_path
     %br
-    .row
+    %ul.activities-list
       =@activities.each do |a|
-        .col-sm-6.col-md-4
-          .thumbnail{style: 'background: rgb(249,251,251);'}
-            -if a.image_path.blank? == false
-              =image_tag(a.image_path, height: '50', width: 'auto')
-            .caption
-              %h3
-                =a.title
+        %li.activities-list-item
+          %span.points-icon
+            %span.points
+              =a.point_value
+          .list-image
 
-                =image_tag(a.icon_path, height: '32', width: '32')
-              %p=a.description
-              .row
-                .col-sm-6
-                .col-sm-6
-                  =link_to "LOG ACTION", [:new_activity_user_activity, activity_id: a.id, user_id: current_user.id] , :class=>"btn btn-default", :role=>"button"
+            -if a.image_path.blank? == false
+              =image_tag(a.image_path.resized )
+          .caption
+            %h3
+              =a.title
+
+              =image_tag(a.icon_path, height: '32', width: '32')
+            %p=a.description
+            .row
+              .col-sm-6
+              .col-sm-6
+                =link_to "LOG ACTION", [:new_activity_user_activity, activity_id: a.id, user_id: current_user.id] , :class=>"btn btn-default", :role=>"button"
 
 

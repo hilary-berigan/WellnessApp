@@ -30,6 +30,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'chart-js-rails'
 
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 #gem 'groupdate', '~> 2.1.1'
 #gem 'active_median', '~> 0.1.0'
 # Use Redis adapter to run Action Cable in production
@@ -55,3 +57,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+

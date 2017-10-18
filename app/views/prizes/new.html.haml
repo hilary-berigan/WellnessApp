@@ -1,11 +1,11 @@
 %h1 New Prize
-= simple_form_for @prize,:method => :post, :url => prizes_path do |f|
+= simple_form_for @prize,:method => :post, :url => prizes_path, html: { multipart: true } do |f|
   = f.input :title, :label => 'Title'
   = f.input :description, :as => :text, :label => 'Description'
-  = f.input :image_path, :as => :photo, :label => 'Upload Image',:hint => image_tag(f.image_path.url) if f.image_path?
   = f.input :point_value, :label => 'Point Value'
   = f.input :activity_status, :collection => [ 'A','I','D' ], :label => 'Status(Active,Inactive,Deleted)'
   = f.input :quantity, :label => 'Quantity'
+  = f.file_field :image_path
   = f.button :submit
 
 

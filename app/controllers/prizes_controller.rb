@@ -12,8 +12,15 @@ class PrizesController < ApplicationController
   end
   def create
     @prize = Prize.new(prize_params)
-    @prize.save
-    redirect_to action: 'show', id: @prize.id
+
+
+    if @prize.save
+      redirect_to action: 'show', id: @prize.id
+    else
+      pp @prize.errors.full_messages
+      flash[:alert] = "nope"
+      redirect_to action: 'new'
+    end
   end
   def edit
     @prize = Prize.find(params[:id])
