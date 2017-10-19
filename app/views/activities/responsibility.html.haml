@@ -1,40 +1,48 @@
-.every-header
-  %h5
-    %strong{style: 'color: rgb(195,195,195); padding-left: 10%;'} RECORD ACTIVITIES
-  %h2{style: 'padding-left: 10%; max-width: 26em; margin-bottom: 5%; color: rgb(93, 93, 93); '} Add an activity to your personal Activity Log by choosing from a list of healthy options.
-  %br
-  .list-container.container
-    %ul.nav.nav-tabs.responsive{style:'max-width: 73em;' }
-      %li.responsive
-        = link_to 'All', activities_path
-      %li.responsive
-        = link_to 'Self', self_path
-      %li.responsive
-        = link_to 'Train', train_path
-      %li.active.responsive
-        = link_to 'Responsibility', responsibility_path
-      %li.responsive
-        = link_to 'Opportunities', opportunities_path
-      %li.responsive
-        = link_to 'Numbers', numbers_path
-      %li.responsive
-        = link_to 'Goals', goals_path
-    %br
-    .row
-      =@resp_activities.each do |a|
-        .col-sm-6.col-md-4
-          .thumbnail{style: 'background: rgb(249,251,251);'}
-            -if a.image_path.blank? == false
-              =image_tag(a.image_path, height: '50', width: 'auto')
-            .caption
-              %h3
-                =a.title
+.every-header.orange.row
+  .col-sm-10
 
-                =image_tag(a.icon_path, height: '32', width: '32')
-              %p=a.description
-              .row
-                .col-sm-6
-                .col-sm-6
-                  =link_to "LOG ACTION", [:new_activity_user_activity, activity_id: a.id, user_id: current_user.id] , :class=>"btn btn-default", :role=>"button"
+    %h5
+      %strong{style: ' padding-left: 10%;'} RECORD ACTIVITIES
+    %h2{style: 'padding-left: 10%; max-width: 26em; margin-bottom: 5%; color: rgb(240,240,240);'} Add an activity to your personal Activity Log by choosing from a list of healthy options.
+
+  .col-sm-2
+    =image_tag("Responsibility-Icon.png",height: '110', width: '110' )
+
+.list-container.container
+  %ul.nav.nav-tabs.responsive{style:'max-width: 73em;' }
+    %li.responsive
+      = link_to 'All', activities_path
+    %li.responsive
+      = link_to 'Self', self_path
+    %li.responsive
+      = link_to 'Train', train_path
+    %li.active.responsive
+      = link_to 'Responsibility', responsibility_path
+    %li.responsive
+      = link_to 'Opportunities', opportunities_path
+    %li.responsive
+      = link_to 'Numbers', numbers_path
+    %li.responsive
+      = link_to 'Goals', goals_path
+  %br
+  %ul.activities-list
+    =@resp_activities.each do |a|
+      %li.activities-list-item
+        %span.points-icon
+          %span.points
+            =a.point_value
+        .list-image
+          -if a.image_path.blank? == false
+            =image_tag(a.image_path.resized)
+        .caption
+          %h3
+            =a.title
+
+            =image_tag("Responsibility-Icon.png", height: '32', width: '32')
+          %p=a.description
+          .row
+            .col-sm-6
+            .col-sm-6
+              =link_to "LOG ACTION", [:new_activity_user_activity, activity_id: a.id, user_id: current_user.id] , :class=>"btn btn-default", :role=>"button"
 
 

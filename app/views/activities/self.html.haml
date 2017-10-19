@@ -1,10 +1,12 @@
-.row
-  .col-sm-6.col-m-6
-  .every-header.red
+
+.every-header.purple.row
+  .col-sm-10
     %h5
       %strong{style:' padding-left: 10%;'} RECORD ACTIVITIES
     %h2{style: 'padding-left: 10%; max-width: 26em; margin-bottom: 5%; color: rgb(240,240,240); '} Add a NUTRITION activity to your personal Activity Log by choosing from a list of healthy options.
-    %br
+  .col-sm-2
+    =image_tag("Self-Icon.png",height: '110', width: '110' )
+
 .list-container.container
   %ul.nav.nav-tabs.responsive{style:'max-width: 73em;' }
     %li.responsive
@@ -22,17 +24,20 @@
     %li.responsive
       = link_to 'Goals', goals_path
   %br
-  .row
-    =@self_activities.each do |a|
-      .col-sm-6.col-md-4
-        .thumbnail{style: 'background: rgb(249,251,251);'}
-          -if a.image_path.blank? == false
-            =image_tag(a.image_path, height: '50', width: 'auto')
+    %ul.activities-list
+      =@self_activities.each do |a|
+        %li.activities-list-item
+          %span.points-icon
+            %span.points
+              =a.point_value
+          .list-image
+            -if a.image_path.blank? == false
+              =image_tag(a.image_path.resized)
           .caption
             %h3
               =a.title
 
-              =image_tag(a.icon_path, height: '32', width: '32')
+              =image_tag("Self-Icon.png", height: '32', width: '32')
             %p=a.description
             .row
               .col-sm-6
